@@ -1,0 +1,48 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /prov
+
+spring:
+  application:
+    name: prov
+
+  datasource:
+    #    druid:
+    #      url: jdbc:mysql://localhost:3306/demo
+    #      username: cej
+    #      password: 123123
+    #
+    #      initial-size: 100 #初始化连接数
+    #      max-active: 200 #最大连接数
+    #      min-idle: 100 #最小连接数
+    #      max-wait: 5000 #单位:毫秒  获取最大的链接等待时间
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=GMT&characterEncoding=utf8&useSSL=true
+    username: cej
+    password: 123123
+
+  jpa:
+    database: mysql
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    enabled: false
+
+logging:
+  level:
+    org:
+      springframework: INFO
+    com:
+      cej: DEBUG
+
